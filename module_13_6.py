@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, executor, types 
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
@@ -75,7 +75,7 @@ async def calculate_bmr(message: types.Message, state: FSMContext):
     await message.answer(f"Ваша норма калорий: {bmr:.2f} ккал")
     await state.finish()
 
-@dp.message_handler()
+@dp.message_handler(lambda message: True)
 async def all_messages(message: types.Message):
     await message.answer('Введите команду /start, чтобы начать общение.')
 
